@@ -8,10 +8,13 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
 
 public class Login {
 
-	public static void main(String[] args) throws InterruptedException {
+	//public static void main(String[] args) throws InterruptedException {
+	@Test
+	public void login() {
 		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
 		ChromeDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -28,7 +31,7 @@ public class Login {
 		Actions action = new Actions(driver);
 		action.moveToElement(vendor).perform();
 		action.click(SearchForVendor).perform();
-		
+		//comite
 		driver.findElementByXPath("(//input[@type='text'])[2]").sendKeys("Blue Lagoon");
 		driver.findElementByXPath("//button[@id='buttonSearch']").click();
 		Thread.sleep(2000);
